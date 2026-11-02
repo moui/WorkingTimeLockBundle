@@ -1,0 +1,127 @@
+{% extends 'page_setup.html.twig' %}
+
+{# Durations are pre-formatted in PHP (MonthState::formatDuration). A Twig
+   macro cannot be used here: macros imported in this block are out of scope
+   inside `{% embed %}` blocks, and with strict_variables off that fails
+   silently, rendering empty cells instead of raising an error. #}
+
+{% block main %}
+    {% from '@theme/components/alert.html.twig' import alert %}
+
+    {{ alert({
+        type: 'info',
+        important: true,
+        description: 'working_time_lock.intro'|trans
+    }) }}
+
+    {% if error %}
+        {{ alert({type: 'danger', important: true, description: error}) }}
+    {% endif %}
+
+    {% embed '@theme/embeds/card.html.twig' %}
+        {% block box_title %}{{ 'working_time_lock.form.title'|trans }}{% endblock %}
+        {% block box_body %}
+            <form method="get" action="{{ path('working_time_lock') }}" class="row g-3">
+                <div class="col-md-5">
+                    <label class="form-label" for="wtl_user">{{ 'user'|trans }}</label>
+                    <select class="form-select" id="wtl_user" name="user" required>
+                        <option value="">—</option>
+                        {% for candidate in users %}
+                            <option value="{{ candidate.id }}" {{ target is not null and target.id == candidate.id ? 'selected' : '' }}>
+                                {{ candidate.displayName }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label" for="wtl_from">{{ 'working_time_lock.form.from'|trans }}</label>
+                    <input class="form-control" id="wtl_from" type="month" name="from" value="{{ from }}" required>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label" for="wtl_through">{{ 'working_time_lock.form.through'|trans }}</label>
+                    <input class="form-control" id="wtl_through" type="month" name="through" value="{{ through }}" required>
+                </div>
+                <div class="col-md-1 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">{{ 'preview'|trans }}</button>
+                </div>
+            </form>
+        {% endblock %}
+    {% endembed %}
+
+    {% if target is not null and lock_rows|length > 0 %}
+        {% embed '@theme/embeds/card.html.twig' with {'fullsize': true} %}
+            {% block box_title %}{{ 'working_time_lock.preview.title'|trans({'%user%': target.displayName}) }}{% endblock %}
+            {% block box_body %}
+                <table class="table table-vcenter dataTable">
+                    <thead>
+                        <tr>
+                            <th>{{ 'month'|trans }}</th>
+                            <th>{{ 'working_time_lock.column.state'|trans }}</th>
+                            <th class="text-end">{{ 'working_time_lock.column.expected'|trans }}</th>
+                            <th class="text-end">{{ 'working_time_lock.column.actual'|trans }}</th>
+                            <th class="text-end">{{ 'working_time_lock.column.difference'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in lock_rows %}
+                            <tr>
+                                <td>{{ row.label }}</td>
+                                <td>
+                                    {% if row.locked %}
+                                        <span class="badge bg-secondary">{{ 'working_time_lock.state.already_locked'|trans }}</span>
+                                    {% else %}
+                                        <span class="badge bg-azure">{{ 'working_time_lock.state.will_lock'|trans }}</span>
+                                    {% endif %}
+                                </td>
+                                <td class="text-end">{{ row.expectedFormatted }}</td>
+                                <td class="text-end">{{ row.actualFormatted }}</td>
+                                <td class="text-end {{ row.delta < 0 ? 'text-danger' : '' }}">{{ row.deltaFormatted }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endblock %}
+        {% endembed %}
+
+        {% if not lockable %}
+            {{ alert({type: 'warning', important: true, description: blocked_reason}) }}
+        {% else %}
+            <form method="post" action="{{ path('working_time_lock_apply') }}"
+                  data-confirm="{{ 'working_time_lock.confirm.lock'|trans({'%user%': target.displayName}) }}"
+                  onsubmit="return confirm(this.dataset.confirm);">
+                <input type="hidden" name="_token" value="{{ csrf_token('working_time_lock') }}">
+                <input type="hidden" name="user" value="{{ target.id }}">
+                <input type="hidden" name="from" value="{{ from }}">
+                <input type="hidden" name="through" value="{{ through }}">
+                <button type="submit" class="btn btn-primary">{{ 'working_time_lock.action.lock'|trans }}</button>
+            </form>
+        {% endif %}
+    {% elseif target is not null and error is null %}
+        {{ alert({type: 'info', description: 'working_time_lock.preview.empty'|trans}) }}
+    {% endif %}
+
+    {% if target is not null and unlock_rows|length > 0 %}
+        {% embed '@theme/embeds/card.html.twig' with {'fullsize': true} %}
+            {% block box_title %}{{ 'working_time_lock.unlock.title'|trans }}{% endblock %}
+            {% block box_body %}
+                <p class="text-secondary">
+                    {{ 'working_time_lock.unlock.intro'|trans({'%month%': '<strong>' ~ from|e ~ '</strong>'})|raw }}
+                </p>
+                <ul>
+                    {% for row in unlock_rows %}
+                        <li>{{ row.label }}</li>
+                    {% endfor %}
+                </ul>
+                <form method="post" action="{{ path('working_time_lock_release') }}"
+                      data-confirm="{{ 'working_time_lock.confirm.unlock'|trans({'%count%': unlock_rows|length}) }}"
+                      onsubmit="return confirm(this.dataset.confirm);">
+                    <input type="hidden" name="_token" value="{{ csrf_token('working_time_unlock') }}">
+                    <input type="hidden" name="user" value="{{ target.id }}">
+                    <input type="hidden" name="from" value="{{ from }}">
+                    <input type="hidden" name="through" value="{{ through }}">
+                    <button type="submit" class="btn btn-danger">{{ 'working_time_lock.action.unlock'|trans({'%count%': unlock_rows|length}) }}</button>
+                </form>
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+{% endblock %}

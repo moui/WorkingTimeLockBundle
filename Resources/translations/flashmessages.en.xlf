@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="flashmessages.en.xlf">
+    <body>
+      <trans-unit id="working_time_lock.flash.invalid_user" resname="working_time_lock.flash.invalid_user">
+        <source>working_time_lock.flash.invalid_user</source>
+        <target>Select a valid user.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.flash.nothing_to_lock" resname="working_time_lock.flash.nothing_to_lock">
+        <source>working_time_lock.flash.nothing_to_lock</source>
+        <target>Nothing to do: every month in the range was already locked.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.flash.nothing_to_unlock" resname="working_time_lock.flash.nothing_to_unlock">
+        <source>working_time_lock.flash.nothing_to_unlock</source>
+        <target>There are no locked months at or after the selected month.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.flash.locked" resname="working_time_lock.flash.locked">
+        <source>working_time_lock.flash.locked</source>
+        <target>{1}Locked %count% month for %user%.|]1,Inf[Locked %count% months for %user%.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.flash.unlocked" resname="working_time_lock.flash.unlocked">
+        <source>working_time_lock.flash.unlocked</source>
+        <target>{1}Unlocked %count% month for %user%.|]1,Inf[Unlocked %count% months for %user%.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,23 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # The bundle class itself must stay registered: PluginInterface carries an
+    # AutoconfigureTag, and PluginManager discovers plugins through that tag on
+    # the *service*. Excluding it here makes the plugin invisible to
+    # `bin/console kimai:plugins` and the System > Plugins page, even though
+    # routes and commands still work.
+    KimaiPlugin\WorkingTimeLockBundle\:
+        resource: '../../*'
+        exclude:
+            - '../../Resources/'
+            - '../../Exception/'
+            - '../../Model/'
+            - '../../vendor/'
+
+    # Controllers need the service locator that AbstractController expects.
+    KimaiPlugin\WorkingTimeLockBundle\Controller\:
+        resource: '../../Controller/'
+        tags: ['controller.service_arguments']

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="messages.en.xlf">
+    <body>
+      <trans-unit id="working_time_lock.title" resname="working_time_lock.title">
+        <source>working_time_lock.title</source>
+        <target>Bloqueo de horas de trabajo</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.intro" resname="working_time_lock.intro">
+        <source>working_time_lock.intro</source>
+        <target>Bloquear un mes congela sus horas esperadas y reales. Primero restaura las horas del contrato ANTERIOR, verifica los números de abajo y solo entonces bloquea. Nunca bloquees meses históricos mientras ya esté vigente un contrato nuevo.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.form.title" resname="working_time_lock.form.title">
+        <source>working_time_lock.form.title</source>
+        <target>Selecciona usuario y rango de meses</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.form.from" resname="working_time_lock.form.from">
+        <source>working_time_lock.form.from</source>
+        <target>Primer mes</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.form.through" resname="working_time_lock.form.through">
+        <source>working_time_lock.form.through</source>
+        <target>Último mes</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.preview.title" resname="working_time_lock.preview.title">
+        <source>working_time_lock.preview.title</source>
+        <target>Vista previa — %user%</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.preview.empty" resname="working_time_lock.preview.empty">
+        <source>working_time_lock.preview.empty</source>
+        <target>No hay meses en el rango seleccionado.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.column.state" resname="working_time_lock.column.state">
+        <source>working_time_lock.column.state</source>
+        <target>Estado</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.column.expected" resname="working_time_lock.column.expected">
+        <source>working_time_lock.column.expected</source>
+        <target>Esperado</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.column.actual" resname="working_time_lock.column.actual">
+        <source>working_time_lock.column.actual</source>
+        <target>Real</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.column.difference" resname="working_time_lock.column.difference">
+        <source>working_time_lock.column.difference</source>
+        <target>Diferencia</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.state.already_locked" resname="working_time_lock.state.already_locked">
+        <source>working_time_lock.state.already_locked</source>
+        <target>ya bloqueado</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.state.will_lock" resname="working_time_lock.state.will_lock">
+        <source>working_time_lock.state.will_lock</source>
+        <target>se bloqueará</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.action.lock" resname="working_time_lock.action.lock">
+        <source>working_time_lock.action.lock</source>
+        <target>Bloquear estos meses</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.action.unlock" resname="working_time_lock.action.unlock">
+        <source>working_time_lock.action.unlock</source>
+        <target>{1}Desbloquear %count% mes|]1,Inf[Desbloquear %count% meses</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.confirm.lock" resname="working_time_lock.confirm.lock">
+        <source>working_time_lock.confirm.lock</source>
+        <target>¿Bloquear estos meses para %user%? Verifica que las horas esperadas reflejen el contrato ANTERIOR antes de continuar.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.confirm.unlock" resname="working_time_lock.confirm.unlock">
+        <source>working_time_lock.confirm.unlock</source>
+        <target>{1}¿Desbloquear %count% mes? Se borrarán las instantáneas guardadas.|]1,Inf[¿Desbloquear %count% meses? Se borrarán las instantáneas guardadas.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.unlock.title" resname="working_time_lock.unlock.title">
+        <source>working_time_lock.unlock.title</source>
+        <target>Desbloquear</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.unlock.intro" resname="working_time_lock.unlock.intro">
+        <source>working_time_lock.unlock.intro</source>
+        <target>Kimai trata la última fecha de aprobación como un corte continuo, así que desbloquear %month% también desbloquea todos los meses bloqueados posteriores. Sus instantáneas guardadas se borran y los saldos se recalculan con el contrato actual.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.invalid_range" resname="working_time_lock.error.invalid_range">
+        <source>working_time_lock.error.invalid_range</source>
+        <target>Usa un rango de meses válido en formato AAAA-MM.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.range_order" resname="working_time_lock.error.range_order">
+        <source>working_time_lock.error.range_order</source>
+        <target>El primer mes no puede ser posterior al último.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.invalid_month" resname="working_time_lock.error.invalid_month">
+        <source>working_time_lock.error.invalid_month</source>
+        <target>Usa un mes válido en formato AAAA-MM.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.not_completed" resname="working_time_lock.error.not_completed">
+        <source>working_time_lock.error.not_completed</source>
+        <target>Solo se pueden bloquear meses ya terminados.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.running_timesheets" resname="working_time_lock.error.running_timesheets">
+        <source>working_time_lock.error.running_timesheets</source>
+        <target>{1}No se puede bloquear: hay %count% registro de tiempo en curso en el rango seleccionado.|]1,Inf[No se puede bloquear: hay %count% registros de tiempo en curso en el rango seleccionado.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.verification_failed" resname="working_time_lock.error.verification_failed">
+        <source>working_time_lock.error.verification_failed</source>
+        <target>Falló la verificación: %month% no quedó completamente bloqueado.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.not_admin" resname="working_time_lock.error.not_admin">
+        <source>working_time_lock.error.not_admin</source>
+        <target>El usuario que aprueba debe tener ROLE_ADMIN o ROLE_SUPER_ADMIN.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

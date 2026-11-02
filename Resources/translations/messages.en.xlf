@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="messages.en.xlf">
+    <body>
+      <trans-unit id="working_time_lock.title" resname="working_time_lock.title">
+        <source>working_time_lock.title</source>
+        <target>Working time lock</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.intro" resname="working_time_lock.intro">
+        <source>working_time_lock.intro</source>
+        <target>Locking freezes a month's expected and actual hours. Restore the OLD contract hours first, verify the numbers below, and only then lock. Never lock historical months while a new contract is already active.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.form.title" resname="working_time_lock.form.title">
+        <source>working_time_lock.form.title</source>
+        <target>Select user and month range</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.form.from" resname="working_time_lock.form.from">
+        <source>working_time_lock.form.from</source>
+        <target>First month</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.form.through" resname="working_time_lock.form.through">
+        <source>working_time_lock.form.through</source>
+        <target>Last month</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.preview.title" resname="working_time_lock.preview.title">
+        <source>working_time_lock.preview.title</source>
+        <target>Preview — %user%</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.preview.empty" resname="working_time_lock.preview.empty">
+        <source>working_time_lock.preview.empty</source>
+        <target>No months in the selected range.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.column.state" resname="working_time_lock.column.state">
+        <source>working_time_lock.column.state</source>
+        <target>State</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.column.expected" resname="working_time_lock.column.expected">
+        <source>working_time_lock.column.expected</source>
+        <target>Expected</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.column.actual" resname="working_time_lock.column.actual">
+        <source>working_time_lock.column.actual</source>
+        <target>Actual</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.column.difference" resname="working_time_lock.column.difference">
+        <source>working_time_lock.column.difference</source>
+        <target>Difference</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.state.already_locked" resname="working_time_lock.state.already_locked">
+        <source>working_time_lock.state.already_locked</source>
+        <target>already locked</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.state.will_lock" resname="working_time_lock.state.will_lock">
+        <source>working_time_lock.state.will_lock</source>
+        <target>will lock</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.action.lock" resname="working_time_lock.action.lock">
+        <source>working_time_lock.action.lock</source>
+        <target>Lock these months</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.action.unlock" resname="working_time_lock.action.unlock">
+        <source>working_time_lock.action.unlock</source>
+        <target>{1}Unlock %count% month|]1,Inf[Unlock %count% months</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.confirm.lock" resname="working_time_lock.confirm.lock">
+        <source>working_time_lock.confirm.lock</source>
+        <target>Lock these months for %user%? Verify the expected hours reflect the OLD contract before continuing.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.confirm.unlock" resname="working_time_lock.confirm.unlock">
+        <source>working_time_lock.confirm.unlock</source>
+        <target>{1}Unlock %count% month? Stored snapshots will be deleted.|]1,Inf[Unlock %count% months? Stored snapshots will be deleted.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.unlock.title" resname="working_time_lock.unlock.title">
+        <source>working_time_lock.unlock.title</source>
+        <target>Unlock</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.unlock.intro" resname="working_time_lock.unlock.intro">
+        <source>working_time_lock.unlock.intro</source>
+        <target>Kimai treats the latest approval date as a continuous cutoff, so unlocking %month% also unlocks every later locked month. Their stored snapshots are deleted and the balances recalculate from the current contract.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.invalid_range" resname="working_time_lock.error.invalid_range">
+        <source>working_time_lock.error.invalid_range</source>
+        <target>Use a valid month range in YYYY-MM format.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.range_order" resname="working_time_lock.error.range_order">
+        <source>working_time_lock.error.range_order</source>
+        <target>The first month must not be later than the last month.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.invalid_month" resname="working_time_lock.error.invalid_month">
+        <source>working_time_lock.error.invalid_month</source>
+        <target>Use a valid month in YYYY-MM format.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.not_completed" resname="working_time_lock.error.not_completed">
+        <source>working_time_lock.error.not_completed</source>
+        <target>Only completed months can be locked.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.running_timesheets" resname="working_time_lock.error.running_timesheets">
+        <source>working_time_lock.error.running_timesheets</source>
+        <target>{1}Refusing to lock: %count% running timesheet exists in the selected range.|]1,Inf[Refusing to lock: %count% running timesheets exist in the selected range.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.verification_failed" resname="working_time_lock.error.verification_failed">
+        <source>working_time_lock.error.verification_failed</source>
+        <target>Verification failed: %month% is not fully locked.</target>
+      </trans-unit>
+      <trans-unit id="working_time_lock.error.not_admin" resname="working_time_lock.error.not_admin">
+        <source>working_time_lock.error.not_admin</source>
+        <target>The approving user must have ROLE_ADMIN or ROLE_SUPER_ADMIN.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

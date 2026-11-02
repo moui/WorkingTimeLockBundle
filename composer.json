@@ -1,0 +1,75 @@
+{
+    "name": "moui/working-time-lock-bundle",
+    "description": "Kimai plugin to snapshot and lock completed working-time months per user, so a later contract change cannot recalculate historical balances. Admin UI plus console commands.",
+    "homepage": "https://github.com/moui/WorkingTimeLockBundle",
+    "type": "kimai-plugin",
+    "version": "0.3.0",
+    "keywords": [
+        "kimai",
+        "kimai-plugin",
+        "working-time",
+        "contract",
+        "lock",
+        "approval"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mauricio Barrera",
+            "homepage": "https://github.com/moui"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/moui/WorkingTimeLockBundle/issues",
+        "source": "https://github.com/moui/WorkingTimeLockBundle"
+    },
+    "extra": {
+        "kimai": {
+            "require": 26600,
+            "name": "Working Time Lock"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "KimaiPlugin\\WorkingTimeLockBundle\\": ""
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/flex": false,
+            "symfony/runtime": false
+        },
+        "platform": {
+            "php": "8.2"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "require": {
+        "php": ">=8.2"
+    },
+    "scripts": {
+        "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
+        "codestyle-fix": "vendor/bin/php-cs-fixer fix",
+        "codestyle-check": "vendor/bin/php-cs-fixer fix --dry-run --verbose --using-cache=no --show-progress=none --format=checkstyle",
+        "phpstan": "vendor/bin/phpstan analyse . --configuration=phpstan.neon",
+        "linting": [
+            "composer validate --strict --no-check-version",
+            "@codestyle-check",
+            "@phpstan"
+        ]
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "kimai/kimai": "dev-main",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-doctrine": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0",
+        "symfony/console": "^6.0",
+        "symfony/event-dispatcher": "^6.0"
+    }
+}
